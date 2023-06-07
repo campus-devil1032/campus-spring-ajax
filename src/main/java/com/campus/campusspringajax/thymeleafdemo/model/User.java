@@ -1,4 +1,4 @@
-package com.campus.campusspringajax.model;
+package com.campus.campusspringajax.thymeleafdemo.model;
 
 import lombok.Data;
 

@@ -1,7 +1,7 @@
-package com.campus.campusspringajax.controller;
+package com.campus.campusspringajax.thymeleafdemo.controller;
 
-import com.campus.campusspringajax.dao.UserDao;
-import com.campus.campusspringajax.model.User;
+import com.campus.campusspringajax.thymeleafdemo.dao.UserDao;
+import com.campus.campusspringajax.thymeleafdemo.model.User;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;

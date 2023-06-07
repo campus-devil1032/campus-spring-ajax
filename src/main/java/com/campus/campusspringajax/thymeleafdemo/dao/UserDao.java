@@ -1,6 +1,6 @@
-package com.campus.campusspringajax.dao;
+package com.campus.campusspringajax.thymeleafdemo.dao;
 
-import com.campus.campusspringajax.model.User;
+import com.campus.campusspringajax.thymeleafdemo.model.User;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Repository;

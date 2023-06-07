@@ -1,6 +1,8 @@
 spring:
 
   thymeleaf:
+    enabled: true
+
     check-template: true
 
     # View의 파일 경로를 지정하기 위한 설정
@@ -19,6 +21,8 @@ spring:
     hiddenmethod:
       filter:
         enabled: true
+
+
   datasource:
     driver-class-name: com.mysql.cj.jdbc.Driver
     url: jdbc:mysql://ec2-13-209-76-58.ap-northeast-2.compute.amazonaws.com:3306/demo_ajax?characterEncoding=UTF-8&serverTimezone=UTC
