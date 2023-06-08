@@ -21,13 +21,16 @@ public class UserDao {
     @Value("${spring.datasource.password}")
     private String PASSWORD;
 
+    public static final String Q_ADD_USER = "INSERT INTO users (name, email) VALUES (?, ?)";
+
     private Connection getConnection() throws SQLException {
         return DriverManager.getConnection(URL, USERNAME, PASSWORD);
     }
 
     public void addUser(User user) {
         try (Connection connection = getConnection();
-             PreparedStatement statement = connection.prepareStatement("INSERT INTO users (name, email) VALUES (?, ?)")) {
+             PreparedStatement statement = connection.prepareStatement(Q_ADD_USER)
+        ) {
             statement.setString(1, user.getName());
             statement.setString(2, user.getEmail());
             statement.executeUpdate();
@@ -37,8 +40,8 @@ public class UserDao {
     }
 
     public List<User> getUsers() {
-        List<User> users = new ArrayList<>();
 
+        List<User> users = new ArrayList<>();
         try (Connection connection = getConnection();
              PreparedStatement statement = connection.prepareStatement("SELECT * FROM users");
              ResultSet resultSet = statement.executeQuery()) {
@@ -58,7 +61,6 @@ public class UserDao {
 
     public User getUserById(int id) {
         User user = null;
-
         try (Connection connection = getConnection();
              PreparedStatement statement = connection.prepareStatement("SELECT * FROM users WHERE id = ?")) {
             statement.setInt(1, id);

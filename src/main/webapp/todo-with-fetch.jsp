@@ -13,13 +13,16 @@
             });
         });
 
+        function addList() {
+            fetch("/")
+        }
+
         function loadTodoList() {
             fetch('/v2/todos')
                 .then(response => response.json())
                 .then(data => {
                     let table = document.getElementById('todoTable');
                     table.innerHTML = '';
-
                     for (let i = 0; i < data.length; i++) {
                         let row = document.createElement('tr');
                         let idCell = document.createElement('td');
@@ -37,7 +40,7 @@
             let taskInput = document.getElementById('taskInput');
             let task = taskInput.value;
 
-            fetch('v2/todo', {
+            fetch('/v2/todo', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'
@@ -48,6 +51,8 @@
                     taskInput.value = '';
                     loadTodoList();
                 });
+
+
         }
     </script>
 </head>
@@ -62,7 +67,7 @@
 </table>
 
 <form onsubmit="event.preventDefault(); addTodo();">
-    <input type="text" id="taskInput" required>
+    <label for="taskInput"></label><input type="text" id="taskInput" required>
     <button type="submit">Add</button>
 </form>
 

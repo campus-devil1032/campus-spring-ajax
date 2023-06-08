@@ -2,8 +2,6 @@ package com.campus.campusspringajax.thymeleafdemo.model;
 
 import lombok.Data;
 
-import lombok.Data;
-
 @Data
 public class User {
     private int id;
